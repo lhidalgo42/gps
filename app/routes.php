@@ -24,6 +24,11 @@ Route::post('/gps/data/create','GPSController@create');
 
 
 Route::group(array('before' => 'auth'), function() {
-	 Route::get('/', ['as' => 'home', 'uses' => 'UsersController@home']);
-    Route::get('/gps/data/index','GPSController@index');
+	Route::get('/', ['as' => 'home', 'uses' => 'UsersController@home']);
+    Route::get('/settings',['as' => 'settings','uses' => 'UsersController@settings']);
+
+
+
+
+     Route::get('/gps/data/index','GPSController@index');
 });
