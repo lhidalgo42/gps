@@ -19,7 +19,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-md-3">{{UserDevice::all()}}</div>
+                <div class="col-md-3">{{Userdevice::all()}}</div>
                 <div class="col-md-9">
                     <div id="map"></div>
                 </div>
