@@ -1,0 +1,110 @@
+.fadein-2{
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+.fadeout-2{
+    animation: fadeout 2s;
+    -moz-animation: fadeout 2s; /* Firefox */
+    -webkit-animation: fadeout 2s; /* Safari and Chrome */
+    -o-animation: fadeout 2s; /* Opera */
+}
+.fadein-1{
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -o-animation: fadein 1s; /* Opera */
+}
+.fadeout-1 {
+    animation: fadeout 1s;
+    -moz-animation: fadeout 1s; /* Firefox */
+    -webkit-animation: fadeout 1s; /* Safari and Chrome */
+    -o-animation: fadeout 1s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@keyframes fadeout {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+@-webkit-keyframes fadeout { /* Safari and Chrome */
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+.fadebgin-1{
+    animation: fadebgin 1s;
+    -moz-animation: fadebgin 1s; /* Firefox */
+    -webkit-animation: fadebgin 1s; /* Safari and Chrome */
+    -o-animation: fadebgin 1s; /* Opera */
+}
+.fadebgout-1 {
+    animation: fadebgout 1s;
+    -moz-animation: fadebgout 1s; /* Firefox */
+    -webkit-animation: fadebgout 1s; /* Safari and Chrome */
+    -o-animation: fadebgout 1s; /* Opera */
+}
+@keyframes fadebgin {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:0.2;
+    }
+}
+@-webkit-keyframes fadebgin { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:0.2;
+    }
+}
+@keyframes fadebgout {
+    from {
+        opacity:0.2;
+    }
+    to {
+        opacity:0;
+    }
+}
+@-webkit-keyframes fadebgout { /* Safari and Chrome */
+    from {
+        opacity:0.2;
+    }
+    to {
+        opacity:0;
+    }
+}
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0.2;
+}
