@@ -13,8 +13,12 @@ class UsersController extends \BaseController {
     public function create(){
         return View::make('app.users.new');
     }
-    public function settings(){
-        return View::make('users.settings');
+    public function config(){
+        return View::make('users.config');
+    }
+
+    public function profile(){
+        return View::make('users.profile');
     }
 
 }

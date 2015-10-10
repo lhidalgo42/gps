@@ -29,40 +29,36 @@
                                 </div>
                                 <div id="device{{$device->id}}" class="panel-collapse collapse @if($device->id == $devices[0]->id) in @endif">
                                     <div class="panel-body">
-                                        <div class="col-lg-4">
-                                            <div class="panel panel-red">
-                                                <div class="panel-heading">
-                                                    En caso de Robo, presione el Botón
-                                                </div>
-                                                <div class="panel-body">
-                                                    <p>Marque como robado solo en el caso de que su veiculo sea robado, ya que se comenzara el rastreo del veiculo y bloqueo de la bolba de bencina.</p>
-                        <a href="#" class="btn btn-danger" style="color: white;" imei="{{$device->imei}}" >Mi Veiculo Fue Robado</a>
-                                                </div>
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-pills">
+                                            <li class="active"><a href="#status-pills{{$device->id}}" data-toggle="tab">Estado</a>
+                                            </li>
+                                            <li><a href="#activity-pills{{$device->id}}" data-toggle="tab">Actividad</a>
+                                            </li>
+                                            <li><a href="#messages-pills{{$device->id}}" data-toggle="tab">Mensajes</a>
+                                            </li>
+                                            <li><a href="#settings-pills{{$device->id}}" data-toggle="tab">Configuracion</a>
+                                            </li>
+                                        </ul>
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="status-pills{{$device->id}}">
+                                                <h4>Home Tab</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                             </div>
-                                            <!-- /.col-lg-4 -->
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="panel panel-primary">
-                                                <div class="panel-heading">
-                                                    Probar aplicación
-                                                </div>
-                                                <div class="panel-body">
-                                                    <p>Ejecute una prueba rapida de la aplicación. Tenga en consideración no estar usando el veiculo en la via publica, ya que puede generar un accidente.</p>
-                                                    <a href="#" class="btn btn-primary" imei="{{$device->imei}}">Ejecutar una prueba</a>
-                                                </div>
+                                            <div class="tab-pane fade" id="activity-pills{{$device->id}}">
+                                                <h4>Profile Tab</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="panel panel-green">
-                                                <div class="panel-heading">
-                                                    Visor de Eventos
-                                                </div>
-                                                <div class="panel-body">
-                                                    <p>Muestra un Resumen de los sucesos que han sucedido en el Auto.</p>
-                                                    <a href="#" class="btn btn-success" style="color: white;" imei="{{$device->imei}}">Ver visor de Eventos</a>
-                                                </div>
+                                            <div class="tab-pane fade" id="messages-pills{{$device->id}}">
+                                                <h4>Messages Tab</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                             </div>
-                                            <!-- /.col-lg-4 -->
+                                            <div class="tab-pane fade" id="settings-pills{{$device->id}}">
+                                                <h4>Settings Tab</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
