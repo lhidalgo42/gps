@@ -62,16 +62,29 @@ class GPSController extends \BaseController {
 		*/
 		$datatype = Datatype::where('name','LIKE',$data[1])->get()->first();
 		$device = Device::where('imei','LIKE',$data[0])->get()->first();
-		$gps = new Data();
-		$gps->devices_id = $device->id;
-		$gps->datatypes_id = $datatype->id;
-		$gps->signal = $data[4];
-		$gps->validity = $data[6];
-		$gps->latitude = $data[7];
-		$gps->longitude = $data[9];
-		$gps->speed = $data[11];
-		$gps->course = $data[12];
-		$gps->save();
+
+		##################### Update device ip #########################33
+		$device->tcpName = Input::get('name');
+		$device->save();
+
+		###################### GET last ubicacion ####################
+		$track = Data::where('devices_id',$device->id)->orderBy('id', 'DESC')->take(1)->get()->first();
+
+		##################### Calcula la distancia #####################
+		$distance = sqrt(($track->latitude -$data[7])^2 + ($track->longitude - $data[9])^2);
+
+		if($distance> 0) {
+			$gps = new Data();
+			$gps->devices_id = $device->id;
+			$gps->datatypes_id = $datatype->id;
+			$gps->signal = $data[4];
+			$gps->validity = $data[6];
+			$gps->latitude = $data[7];
+			$gps->longitude = $data[9];
+			$gps->speed = $data[11];
+			$gps->course = $data[12];
+			$gps->save();
+		}
 	}
 
 	/**

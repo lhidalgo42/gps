@@ -5,7 +5,7 @@
                 <a href="/"><i class="fa fa-home"></i> Inicio</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-calendar"></i> Calendario<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-calendar"></i> Dispositivos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" aria-expanded="false">
                     <li>
                         <a href="/calendar/add">Agregar Hora</a>

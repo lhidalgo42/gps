@@ -5,98 +5,70 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            @include('navs.top')
 
+            @include('navs.top')
         </nav>
 
 
         <div id="page-wrapper">
-            <!-- /.row -->
-            <div class="row" style="padding-top: 30px;">
-                <div class="col-md-9">
-                    <h3>Dispositivos</h3>
 
-                    <div class="panel-group" id="accordion">
-                        @foreach($devices as $device)
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#device{{$device->id}}"
-                                           aria-expanded="false" class="collapsed">{{$device->name}}
-                                            <div class="badge pull-right">{{strtoupper($device->plate)}}</div>
-                                        </a>
-                                    </h4>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Dispositivos</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+                @foreach($devices as $device)
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-car fa-5x"></i>
                                 </div>
-                                <div id="device{{$device->id}}" class="panel-collapse collapse @if($device->id == $devices[0]->id) in @endif">
-                                    <div class="panel-body">
-                                        <!-- Nav tabs -->
-                                        <ul class="nav nav-pills">
-                                            <li class="active"><a href="#status-pills{{$device->id}}" data-toggle="tab">Estado</a>
-                                            </li>
-                                            <li><a href="#activity-pills{{$device->id}}" data-toggle="tab">Actividad</a>
-                                            </li>
-                                            <li><a href="#messages-pills{{$device->id}}" data-toggle="tab">Mensajes</a>
-                                            </li>
-                                            <li><a href="#settings-pills{{$device->id}}" data-toggle="tab">Configuracion</a>
-                                            </li>
-                                        </ul>
-
-                                        <!-- Tab panes -->
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade in active" id="status-pills{{$device->id}}">
-                                                <h4>Home Tab</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                            </div>
-                                            <div class="tab-pane fade" id="activity-pills{{$device->id}}">
-                                                <h4>Profile Tab</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                            </div>
-                                            <div class="tab-pane fade" id="messages-pills{{$device->id}}">
-                                                <h4>Messages Tab</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                            </div>
-                                            <div class="tab-pane fade" id="settings-pills{{$device->id}}">
-                                                <h4>Settings Tab</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{strtoupper($device->plate)}}</div>
+                                    <div class="h4">{{$device->name}}</div>
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalles</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
                     </div>
+                    <div id="map{{$device->id}}"></div>
                 </div>
-                <div class="col-md-3">
-                    <div id="map"></div>
-                </div>
+                @endforeach
+
             </div>
         </div>
         <!-- /#page-wrapper -->
+        <script>
+            $(document).ready(function(){
+        @foreach($devices as $device)
+                    var map{{$device->id}} = new GMaps({
+                        div: '#map{{$device->id}}',
+                        lat: {{$coordinates[$device->id][0]}},
+                        lng: {{$coordinates[$device->id][1]}}
+                    });
+                    map{{$device->id}}.addMarker({
+                        lat: {{$coordinates[$device->id][0]}},
+                        lng: {{$coordinates[$device->id][1]}}
+                        title: '{{$device->plate}}',
+                        infoWindow: {
+                            content: '{{$device->created_at}}'
+                        }
+                    });
+                });
 
-
+        @endforeach
+        </script>
     </div>
-    <script>
-        var map;
-        $(document).ready(function () {
-            map = new GMaps({
-                div: '#map',
-                lat: -33.501603333333,
-                lng: -70.561966666667,
-                click: function (e) {
-                    console.log(e);
-                }
-            });
-
-            path = {{json_encode($coordinates)}};
-
-            map.drawPolyline({
-                path: path,
-                strokeColor: '#131540',
-                strokeOpacity: 0.6,
-                strokeWeight: 6
-            });
-        });
-    </script>
     <!-- /#wrapper -->
 
 @stop
