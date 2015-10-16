@@ -50,11 +50,11 @@
         <!-- /#page-wrapper -->
         <script>
             @foreach($devices as $device)
-            var map{{$device->devices_id}};
+            var map{{$device->id}};
             @endforeach
             $(document).ready(function(){
         @foreach($devices as $device)
-        @if(isset($coordinates[$device->devices_id]))
+        @if(isset($coordinates[$device->id]))
                     var map{{$device->id}} = new GMaps({
                         div: '#map{{$device->id}}',
                         lat: {{$coordinates[$device->id][0]}},
