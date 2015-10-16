@@ -31,5 +31,5 @@ Route::group(array('before' => 'auth'), function() {
 
 
 
-     Route::post('/gps/data/index','GPSController@index');
+     Route::get('/gps/data/index','GPSController@index');
 });
