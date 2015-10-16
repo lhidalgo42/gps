@@ -8,7 +8,8 @@
     "laravel/framework": "4.2.*",
     "laracasts/validation"                 : "~1.0",
     "barryvdh/laravel-dompdf"              : "0.4.x",
-    "maddhatter/laravel-fullcalendar"      : "~0.1"
+    "maddhatter/laravel-fullcalendar"      : "~0.1",
+    "anlutro/curl": "^1.3"
   },
   "require-dev": {
     "way/generators": "2.*",

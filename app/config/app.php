@@ -195,6 +195,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
         'PDF'               => 'Barryvdh\DomPDF\Facade',
         'Calendar'          => 'MaddHatter\LaravelFullcalendar\Facades\Calendar',
+		'cURL' => 'anlutro\cURL\Laravel\cURL'
 
 	),
 
