@@ -90,8 +90,6 @@
         </div>
         <!-- /#page-wrapper -->
 
-        {{$user}}
-
 
     </div>
 
