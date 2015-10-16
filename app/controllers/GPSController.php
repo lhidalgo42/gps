@@ -73,7 +73,7 @@ class GPSController extends \BaseController {
 
 		if($track) {
 			$distance = sqrt(pow(($track->latitude - $data[7]),2) + pow(($track->longitude - $data[9]),2));
-			if ($distance > 0) {
+			if ($distance > 0 && $datatype->id !=$track->datatypes_id) {
 				$gps = new Data();
 				$gps->devices_id = $device->id;
 				$gps->datatypes_id = $datatype->id;
