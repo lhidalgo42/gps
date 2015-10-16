@@ -8,32 +8,43 @@
             @include('navs.top')
         </nav>
 
-        {{$user}}
         <div id="page-wrapper">
-            <div class="row">
-                <h4 class="page-header">Datos del Usuario</h4>
-            </div>
+
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h3>Datos Personales</h3>
-                    <form method="post" action="emailForm.php">
-                        <label for="name">Nombre: <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" value="" placeholder="Tu nombre" required="required" autofocus="autofocus"/>
+                    <h4 class="page-header">Datos del Usuario</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Tu nombre" value="{{$user->name}}">
+                        </div>
 
-                        <label for="email">E-mail: <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" value="" placeholder="tu@email.com" required="required"/>
+                        <div class="form-group">
+                            <label for="rut">Rut:</label>
+                            <input type="text" class="form-control" id="rut" placeholder="Ejemplo xx.xxx.xxx-x" value="{{$user->rut}}">
+                        </div>
 
-                        <label for="rut">Rut: </label>
-                        <input type="text" id="rut" name="rut" value="" placeholder="12345678-9" required="required"/>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" value="{{$user->email}}">
+                        </div>
 
-                        <input type="submit" value="Actualizar" id="submit"/>
+                        <div class="form-group">
+                            <label for="phone">Rut:</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Ejemplo x-xxxxxxx" value="{{$user->phone}}">
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Actualizar</button>
                     </form>
 
                 </div>
 
                 <div class="col-md-6 col-sm-12">
-                    <h3>Datos Subscripción</h3>
-
+                    <h4 class="page-header">Subscripción</h4>
+                    <div style="font-weight:bold; padding-bottom: 5px;">Patente:</div>
+                    <input class="form-control" type="text" value="plate" style="margin-bottom:15px;">
+                    <div style="font-weight:bold; padding-bottom: 5px;">Valida hasta:</div>
+                    <input class="form-control" type="text" value="fecha" style="margin-bottom:15px;">
                 </div>
 
 
