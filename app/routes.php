@@ -25,7 +25,7 @@ Route::post('/gps/data/create','GPSController@create');
 
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/', ['as' => 'home', 'uses' => 'UsersController@home']);
-	Route::get('/device/{id}', ['as' => 'home', 'uses' => 'DevicesController@show']);
+	Route::get('/device/{id}', 'DevicesController@show');
     Route::get('/config',['as' => 'config','uses' => 'UsersController@config']);
     Route::get('/profile',['as' => 'profile','uses' => 'UsersController@profile']);
 
