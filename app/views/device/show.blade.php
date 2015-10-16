@@ -44,6 +44,7 @@
             </div>
             <script>
                 var map;
+                @if($data)
                 $(document).ready(function(){
                     map = new GMaps({
                         div: '#map',
@@ -56,6 +57,7 @@
                         title: '{{$device->plate}}'
                     });
                 });
+                @endif
                 $("#stole").click(function(){
                     //TODO
                 });
