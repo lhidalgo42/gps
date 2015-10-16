@@ -15,9 +15,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dispositivos</h1>
+                    <div class="pull-right" style="padding-bottom: 10px;">
+                        <i class="fa fa-square fa-2x" style="color:#5CB85C;"></i><span<¡2
+                        <i class="fa fa-square fa-2x" style="color:yellow;">Proximo a Vencer</i>
+                        <i class="fa fa-square fa-2x" style="color:red;">Malo</i>
+                    </div>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+
+
             <div class="row">
                 @foreach($devices as $device)
                 <div class="col-lg-6 col-xs-12" style="padding-bottom: 30px;">
