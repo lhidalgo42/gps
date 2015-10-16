@@ -22,7 +22,8 @@ class UsersController extends \BaseController {
     }
 
     public function profile(){
-        return View::make('users.profile');
+        $user = Auth::user();
+        return View::make('users.profile')->with(compact($user));
     }
 
 }
