@@ -68,9 +68,9 @@
                             content: '{{$device->created_at}}'
                         }
                     });
-                });
         @endif
         @endforeach
+            });
         </script>
     </div>
     <!-- /#wrapper -->
