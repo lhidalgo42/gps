@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 @foreach($devices as $device)
-                <div class="col-lg-6 col-xs-12">
+                <div class="col-lg-6 col-xs-12" style="padding-bottom: 30px;">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
@@ -33,9 +33,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/device/{{$device->id}}">
                             <div class="panel-footer">
-                                <span class="pull-left">Ver Detalles</span>
+                                <span class="pull-left">Mas opciones</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
