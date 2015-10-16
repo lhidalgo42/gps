@@ -22,9 +22,9 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="col-xd-12 sombra" style="margin-bottom: 30px;">
                         <div style="padding: 10px;">
-                            <h4>En caso de robo, presione este botón</h4>
+                            <h4>En caso de robo, presione este botÃ³n</h4>
 
-                            <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
+                            <p>Marque esta opciÃ³n si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
                                 auto y lo detendra, impidiendo que el auto continue avanzando.</p>
                             <button class="btn-danger btn" id="stole">Mi Vehiculo fue robado</button>
                         </div>
