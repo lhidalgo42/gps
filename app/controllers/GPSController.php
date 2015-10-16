@@ -110,7 +110,9 @@ class GPSController extends \BaseController {
 	{
 		$id = Input::get('device');
 		$device = Device::find($id);
-		$lock = cURL::newRequest('post', 'localhost:3000/send', ['name' => $device->tcpName,])
+		$lock = cURL::newRequest('post', 'localhost:3000/send', ['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',L']);
+
+		
 		return $device;
 	}
 
