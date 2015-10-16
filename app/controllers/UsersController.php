@@ -23,7 +23,8 @@ class UsersController extends \BaseController {
 
     public function profile(){
         $user = Auth::user();
-        return View::make('users.profile')->with(compact('user'));
+        $devices = Device::join('users_devices','users_devices.devices_id','=','devices.id')->where('users_devices.users_id','=',Auth::user()->id)->get();
+        return View::make('users.profile')->with(compact('user','devices'));
     }
 
 }

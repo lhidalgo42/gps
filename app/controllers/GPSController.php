@@ -112,11 +112,11 @@ class GPSController extends \BaseController {
 		$device = Device::find($id);
 		$lock = cURL::newRequest('post', 'localhost:3000/send', ['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',L']);
         sleep(10);
-        $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes','lt')->orderBy('id', 'DESC')->take(1)->get()->first();
+        $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','lt')->orderBy('id', 'DESC')->take(1)->get()->first();
 		if((time()-strtotime($data->created_at)) <10){
             $unlock = cURL::newRequest('post', 'localhost:3000/send', ['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',M']);
             sleep(10);
-            $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes','mt')->orderBy('id', 'DESC')->take(1)->get()->first();
+            $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','mt')->orderBy('id', 'DESC')->take(1)->get()->first();
             if((time()-strtotime($data->created_at)) <10) {
                 return json_encode(array('text' => 'Exitosa','msg' => 'Prueba Ejecutada Correctamente','type' => 'success'));
             }
