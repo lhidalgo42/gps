@@ -20,7 +20,17 @@
             </div>
             <div class="row">
                 @foreach($devices as $device)
-                <div class="col-lg-3 col-md-6">
+                    <?php
+                        $cantidad = count($devices);
+                        if($cantidad<=4){
+                            $largo = 12/$cantidad;
+                        }
+                        else{
+                            $largo= 3;
+                        }
+
+                        ?>
+                <div class="col-lg-{{$largo}} col-xs-12">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
