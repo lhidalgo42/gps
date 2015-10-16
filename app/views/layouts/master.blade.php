@@ -55,7 +55,7 @@
     <![endif]-->
 
     <style>
-        #map{
+        .map{
             display: block;
             width: 95%;
             height: 450px;

@@ -41,7 +41,7 @@
                             </div>
                         </a>
                     </div>
-                    <div id="map{{$device->id}}"></div>
+                    <div id="map{{$device->id}}" class="map"></div>
                 </div>
                 @endforeach
 
@@ -49,8 +49,12 @@
         </div>
         <!-- /#page-wrapper -->
         <script>
+            @foreach($devices as $device)
+            var map{{$device->devices_id}};
+            @endforeach
             $(document).ready(function(){
         @foreach($devices as $device)
+        @if(isset($coordinates[$device->devices_id]))
                     var map{{$device->id}} = new GMaps({
                         div: '#map{{$device->id}}',
                         lat: {{$coordinates[$device->id][0]}},
@@ -58,14 +62,14 @@
                     });
                     map{{$device->id}}.addMarker({
                         lat: {{$coordinates[$device->id][0]}},
-                        lng: {{$coordinates[$device->id][1]}}
+                        lng: {{$coordinates[$device->id][1]}},
                         title: '{{$device->plate}}',
                         infoWindow: {
                             content: '{{$device->created_at}}'
                         }
                     });
                 });
-
+        @endif
         @endforeach
         </script>
     </div>
