@@ -33,7 +33,8 @@
                         <div style="padding: 10px;">
                             <h4>Ejecutar una Prueba</h4>
 
-                            <p>Ejecutar una prueba rapida para ver como funciona. Tenga en cuenta que se detendra el suministro de bencina, no se recomienda estar conduciendo.</p>
+                            <p>Ejecutar una prueba rapida para ver como funciona. Tenga en cuenta que se detendra el
+                                suministro de bencina, no se recomienda estar conduciendo.</p>
                             <button class="btn-primary btn" id="test">Ejecutar una prueba</button>
                         </div>
                     </div>
@@ -45,24 +46,44 @@
             <script>
                 var map;
                 @if($data)
-                $(document).ready(function(){
-                    map = new GMaps({
-                        div: '#map',
-                        lat: {{$data->latitude}},
-                        lng: {{$data->longitude}}
-                    });
-                    map.addMarker({
-                        lat: {{$data->latitude}},
-                        lng: {{$data->longitude}},
-                        title: '{{$device->plate}}'
-                    });
-                });
+                $(document).ready(function () {
+                            map = new GMaps({
+                                div: '#map',
+                                lat: {{$data->latitude}},
+                                lng: {{$data->longitude}}
+
+
+                            });
+                            map.addMarker({
+                                lat: {{$data->latitude}},
+                                lng: {{$data->longitude}},
+                                title: '{{$device->plate}}'
+                            });
+                        });
                 @endif
-                $("#stole").click(function(){
-                    //TODO
+                $("#stole").click(function () {
+                    $.ajax({
+                        url: "/gps/data/send/stole",
+                        data: {
+                            device:{{$device->id}}
+                        },
+                        type: "POST",
+                        success: function (data) {
+                            swal(data.text, data.msg, data.type)
+                        }
+                    });
                 });
                 $("#test").click(function () {
-                    //TODO
+                    $.ajax({
+                        url: "/gps/data/send/test",
+                        data: {
+                            device:{{$device->id}}
+                        },
+                        type: "POST",
+                        success: function (data) {
+                            swal(data.text, data.msg, data.type)
+                        }
+                    });
                 });
             </script>
 
