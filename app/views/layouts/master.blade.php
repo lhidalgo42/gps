@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NUT</title>
+    <title>GPS</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/packages/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
