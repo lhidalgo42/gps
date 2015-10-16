@@ -110,11 +110,17 @@ class GPSController extends \BaseController {
 	{
 		$id = Input::get('device');
 		$device = Device::find($id);
-		$lock = cURL::newRequest('post', 'localhost:3000/send', ['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',L']);
+		$lock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',L']);
+        if($lock->statusCode != 200){
+            return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','type' => 'error'));
+        }
         sleep(10);
         $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','lt')->orderBy('data.id', 'DESC')->take(1)->get()->first();
 		if((time()-strtotime($data->created_at)) <10){
-            $unlock = cURL::newRequest('post', 'localhost:3000/send', ['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',M']);
+            $unlock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',M']);
+            if($unlock->statusCode != 200){
+                return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','type' => 'error'));
+            }
             sleep(10);
             $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','mt')->orderBy('data.id', 'DESC')->take(1)->get()->first();
             if((time()-strtotime($data->created_at)) <10) {
