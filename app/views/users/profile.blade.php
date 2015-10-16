@@ -41,10 +41,10 @@
 
                 <div class="col-md-6 col-sm-12">
                     <h4 class="page-header">Subscripción</h4>
-                    <div style="font-weight:bold; padding-bottom: 5px;">Patente:</div>
-                    <input class="form-control" type="text" value="plate" style="margin-bottom:15px;">
-                    <div style="font-weight:bold; padding-bottom: 5px;">Valida hasta:</div>
-                    <input class="form-control" type="text" value="fecha" style="margin-bottom:15px;">
+                    <div class="input-group input-group-md" style="padding-top: 24px;">
+                        <span class="input-group-addon" id="sizing-addon1">PATENTE</span>
+                        <input type="text" class="form-control" value="oli">
+                    </div>
                 </div>
 
 
