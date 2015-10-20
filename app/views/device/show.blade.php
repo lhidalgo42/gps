@@ -20,41 +20,41 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-xs-12">
+
                     <div class="col-xd-12 sombra"
-                         style="margin-bottom: 30px; @if($status->name == 'Activo' || $status->name == 'Check' || $status->name == 'Alerta') display:block; @else display:none; @endif">
-                        <div style="padding: 10px;">
-                            <h4>En caso de robo, presione este botón</h4>
+                         style="margin-bottom: 10px; @if($status->name == 'Activo' || $status->name == 'Check' || $status->name == 'Alerta') display:block; @else display:none; @endif">
+                        <div style="padding: 10px">
                             <button class="btn-danger btn pull-right" id="stole">Mi Vehiculo fue robado</button>
+                            <h4>En caso de robo, presione este botón</h4>
                             <p>Marque esta opción si su vehiculo fué robado. Se interrumpirá el suministro de
                                 combustible lo cual detendrá el vehículo instantaneamente, impidiendo que continue
                                 avanzando.</p>
-                            <span class="pull-right" style="display: none;" id="spin-stole"><i
-                                        class="fa fa-spinner fa-pulse fa-2x"></i></span>
+                            <span style="display: none;" id="spin-stole"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
-                    <div class="col-xd-12 sombra"
-                         style="margin-bottom: 30px;@if($status->name == 'Robado') display:none; @else display:block; @endif">
-                        <div style="padding: 10px;">
-                            <h4>En caso de robo, presione este botón</h4>
+
+                    <div class="col-xd-12 sombra" style="margin-bottom: 10px;@if($status->name == 'Robado') display:none; @else display:block; @endif">
+                        <div style="padding: 10px">
                             <button class="btn-success btn pull-right" id="getitback">Lo He Recuperado</button>
+                            <h4>En caso de robo, presione este botón</h4>
                             <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
                                 auto y lo detendra, impidiendo que el auto continue avanzando.</p>
-                            <span class="pull-right" style="display: none;" id="spin-getitback"><i
-                                        class="fa fa-spinner fa-pulse fa-2x"></i></span>
+                            <span style="display: none;" id="spin-getitback"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
-                    <div class="col-xd-12 sombra">
-                        <div style="padding: 10px;">
-                            <h4>Ejecutar una Prueba</h4>
 
+                    <div class="col-xd-12 sombra" style="margin-bottom: 10px;">
+                        <div style="padding: 10px">
+                            <button class="btn-primary btn pull-right" id="test">Ejecutar una prueba</button>
+                            <h4>Ejecutar una prueba</h4>
                             <p>Se realizará una conexion de prueba con el vehiculo, lo cual producirá la activación y
                                 desactivación de la alarma, no se recomienda estar conduciendo.</p>
-                            <button class="btn-primary btn" id="test">Ejecutar una prueba</button>
-                            <span class="pull-right" style="display: none;" id="spin-test"><i
-                                        class="fa fa-spinner fa-pulse fa-2x"></i></span>
+                            <span style="display: none;" id="spin-test"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
+
                 </div>
+
                 <div class="col-md-6 col-xs-12">
                     <div class="map" id="map"></div>
                 </div>
