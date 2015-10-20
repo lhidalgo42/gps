@@ -70,6 +70,7 @@
                         });
                 @endif
                 $("#stole").click(function () {
+                  $(this).addClass('disabled');
                     $.ajax({
                         url: "/gps/data/send/stole",
                         data: {
@@ -82,12 +83,29 @@
                                 $("#spin-stole").css('display','block');
                             },1000);
                         },
+                        error: function (error) {
+                            console.log(error);
+                            $("#spin-stole").addClass('fadeout-1');
+                            setTimeout(function(){
+                                $("#spin-stole").css('display','none');
+                            },1000);
+                            $("#stole").removeClass('disabled');
+                            swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
+                        },
                         success: function (data) {
                             $("#spin-stole").addClass('fadeout-1');
                             setTimeout(function(){
                                 $("#spin-stole").css('display','none');
                             },1000);
                             swal(data.text, data.msg, data.status);
+                            $("#stole").removeClass('disabled');
+                            if(data.status == 'success')
+                            {
+                                $("#stole").parent().parent().addClass('fadeout-1');
+                                setTimeout(function() {
+                                    $("#stole").parent().parent().css('display','none');
+                                },1000);
+                            }
                         }
                     });
                 });
