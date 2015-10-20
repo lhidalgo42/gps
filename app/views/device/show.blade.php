@@ -77,7 +77,7 @@
                         },
                         type: "POST",
                         success: function (data) {
-                            swal(data.text, data.msg, data.type);
+                            swal(data['text'], data['msg'], data['type'])
                             $("#stole").css('display','none');
                             $("#getitback").css('display','block');
                         }
@@ -95,12 +95,13 @@
                             setTimeout(function(){
                                 $("#spin-test").css('display','block');
                             },1000);
-
-
                         },
                         success: function (data) {
-                            $("#spin-test").css('display','none');
-                            swal(data.text, data.msg, data.type)
+                            $("#spin-test").addClass('fadeout-1');
+                            setTimeout(function(){
+                                $("#spin-test").css('display','none');
+                            },1000);
+                            swal(data['text'], data['msg'], data['type'])
                         }
                     });
                 });
