@@ -24,14 +24,8 @@
                         <div style="padding: 10px;">
                             <h4>En caso de robo, presione este botón</h4>
                             <button class="btn-danger btn pull-right" id="stole">Mi Vehiculo fue robado</button>
-<<<<<<< HEAD
                             <p>Marque esta opción si su vehiculo fué robado. Se interrumpirá el suministro de combustible lo cual detendrá el vehículo instantaneamente, impidiendo que continue avanzando.</p>
-=======
-                            <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
-                                auto y lo detendra, impidiendo que el auto continue avanzando.</p>
-                            <i class="fa fa-spin fa-spinner" style="display: none;" id="spin-stole"></i>
->>>>>>> staging
-
+                            <span class="pull-right" style="display: none;" id="spin-stole"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
                     <div class="col-xd-12 sombra" style="margin-bottom: 30px;display:none;">
@@ -40,7 +34,7 @@
                             <button class="btn-success btn pull-right" id="getitback">Lo He Recuperado</button>
                             <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
                                 auto y lo detendra, impidiendo que el auto continue avanzando.</p>
-                            <i class="fa fa-spin fa-spinner" style="display: none;" id="spin-getitback"></i>
+                            <span class="pull-right" style="display: none;" id="spin-getitback"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
                     <div class="col-xd-12 sombra">
