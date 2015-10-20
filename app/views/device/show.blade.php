@@ -21,15 +21,14 @@
             <div class="row">
                 <div class="col-md-6 col-xs-12">
 
-                    <div class="col-xd-12 sombra"
-                         style="margin-bottom: 10px; @if($status->name == 'Activo' || $status->name == 'Check' || $status->name == 'Alerta') display:block; @else display:none; @endif">
+                    <div class="col-xd-12 sombra" style="margin-bottom: 10px; @if($status->name == 'Activo' || $status->name == 'Check' || $status->name == 'Alerta') display:block; @else display:none; @endif">
                         <div style="padding: 10px">
                             <button class="btn-danger btn pull-right" id="stole">Mi Vehiculo fue robado</button>
                             <h4>En caso de robo, presione este botón</h4>
                             <p>Marque esta opción si su vehiculo fué robado. Se interrumpirá el suministro de
                                 combustible lo cual detendrá el vehículo instantaneamente, impidiendo que continue
                                 avanzando.</p>
-                            <span style="display: none;" id="spin-stole"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
+                            <span style="display: none;float: right;margin-top: -25px;" id="spin-stole" class="animated"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
 
@@ -39,7 +38,7 @@
                             <h4>En caso de robo, presione este botón</h4>
                             <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
                                 auto y lo detendra, impidiendo que el auto continue avanzando.</p>
-                            <span style="display: none;" id="spin-getitback"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
+                            <span style="display: none;float: right;margin-top: -25px;" id="spin-getitback" class="animated"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
 
@@ -49,7 +48,7 @@
                             <h4>Ejecutar una prueba</h4>
                             <p>Se realizará una conexion de prueba con el vehiculo, lo cual producirá la activación y
                                 desactivación de la alarma, no se recomienda estar conduciendo.</p>
-                            <span style="display: none;" id="spin-test"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
+                            <span style="display: none;float: right;margin-top: -25px;" id="spin-test" class="animated"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
 
@@ -78,43 +77,43 @@
 
 
                 
-                $("#stole").click(function () {
+                $("#getitback").click(function () {
                             $(this).addClass('disabled');
                             $.ajax({
-                                url: "/gps/data/send/stole",
+                                url: "/gps/data/send/getitback",
                                 data: {
                                     device:{{$device->id}}
 
                                 },
                                 type: "POST",
                                 beforeSend: function () {
-                                    $("#spin-stole").addClass('fadein-1');
+                                    $("#spin-getitback").addClass('zoomIn').removeClass('zoomOut');
                                     setTimeout(function () {
-                                        $("#spin-stole").css('display', 'block');
+                                        $("#spin-getitback").css('display', 'block');
                                     }, 1000);
                                 },
                                 error: function (error) {
                                     console.log(error);
-                                    $("#spin-stole").addClass('fadeout-1');
+                                    $("#spin-getitback").addClass('zoomOut').removeClass('zoomIn');
                                     setTimeout(function () {
-                                        $("#spin-stole").css('display', 'none');
+                                        $("#spin-getitback").css('display', 'none');
                                     }, 1000);
-                                    $("#stole").removeClass('disabled');
+                                    $("#getitback").removeClass('disabled');
                                     swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
                                 },
                                 success: function (data) {
-                                    $("#spin-stole").addClass('fadeout-1');
+                                    $("#spin-getitback").addClass('zoomOut').removeClass('zoomIn');
                                     setTimeout(function () {
-                                        $("#spin-stole").css('display', 'none');
+                                        $("#spin-getitback").css('display', 'none');
                                     }, 1000);
                                     data = JSON.parse(data);
                                     swal(data.text, data.msg, data.status);
-                                    $("#stole").removeClass('disabled');
+                                    $("#getitback").removeClass('disabled');
                                     if (data.status == 'success') {
-                                        $("#stole").parent().parent().addClass('fadeout-1');
+                                        $("#getitback").parent().parent().addClass('zoomOut').removeClass('zoomIn');
                                         setTimeout(function () {
-                                            $("#getitback").parent().parent().addClass('fadein-1');
-                                            $("#stole").parent().parent().css('display', 'none');
+                                            $("#getitback").parent().parent().addClass('zoomIn').removeClass('zoomOut');
+                                            $("#getitback").parent().parent().css('display', 'none');
                                             setTimeout(function () {
                                                 $("#getitback").parent().parent().css('display', 'block');
                                             }, 1000);
@@ -123,45 +122,45 @@
                                 }
                             });
                         });
-                $("#getitback").click(function () {
+                $("#stole").click(function () {
                     $(this).addClass('disabled');
                     $.ajax({
-                        url: "/gps/data/send/getitback",
+                        url: "/gps/data/send/stole",
                         data: {
                             device:{{$device->id}}
 
-                        },
+                                },
                         type: "POST",
                         beforeSend: function () {
-                            $("#spin-getitback").addClass('fadein-1');
+                            $("#spin-stole").addClass('zoomIn').removeClass('zoomOut');
                             setTimeout(function () {
-                                $("#spin-getitback").css('display', 'block');
+                                $("#spin-stole").css('display', 'block');
                             }, 1000);
-                            $("#getitback").removeClass('disabled');
                         },
-                        error: function () {
+                        error: function (error) {
                             console.log(error);
-                            $("#spin-getitback").addClass('fadeout-1');
+                            $("#spin-stole").addClass('zoomOut').removeClass('zoomIn');
                             setTimeout(function () {
-                                $("#spin-getitback").css('display', 'none');
+                                $("#spin-stole").css('display', 'none');
                             }, 1000);
-                            $("#getitback").removeClass('disabled');
+                            $("#stole").removeClass('disabled');
                             swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
                         },
                         success: function (data) {
-                            $("#spin-getitback").addClass('fadeout-1');
+                            $("#spin-stole").addClass('zoomOut').removeClass('zoomIn');
                             setTimeout(function () {
-                                $("#spin-getitback").css('display', 'none');
+                                $("#spin-stole").css('display', 'none');
                             }, 1000);
                             data = JSON.parse(data);
                             swal(data.text, data.msg, data.status);
+                            $("#stole").removeClass('disabled');
                             if (data.status == 'success') {
-                                $("#getitback").parent().parent().addClass('fadeout-1');
+                                $("#stole").parent().parent().addClass('zoomOut').removeClass('zoomIn');
                                 setTimeout(function () {
-                                    $("#stole").parent().parent().addClass('fadein-1');
-                                    $("#getitback").parent().parent().css('display', 'none');
+                                    $("#getitback").parent().parent().addClass('zoomIn').removeClass('zoomOut');
+                                    $("#stole").parent().parent().css('display', 'none');
                                     setTimeout(function () {
-                                        $("#stole").parent().parent().css('display', 'block');
+                                        $("#getitback").parent().parent().css('display', 'block');
                                     }, 1000);
                                 }, 1000);
                             }
@@ -178,14 +177,14 @@
                         },
                         type: "POST",
                         beforeSend: function () {
-                            $("#spin-test").addClass('fadein-1');
+                            $("#spin-test").addClass('zoomIn').removeClass('zoomOut');
                             setTimeout(function () {
                                 $("#spin-test").css('display', 'block');
                             }, 1000);
                         },
                         error: function (error) {
                             console.log(error);
-                            $("#spin-test").addClass('fadeout-1');
+                            $("#spin-test").addClass('zoomOut').removeClass('zoomIn');
                             setTimeout(function () {
                                 $("#spin-test").css('display', 'none');
                             }, 1000);
@@ -193,7 +192,7 @@
                             swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
                         },
                         success: function (data) {
-                            $("#spin-test").addClass('fadeout-1');
+                            $("#spin-test").addClass('zoomOut').removeClass('zoomIn');
                             setTimeout(function () {
                                 $("#spin-test").css('display', 'none');
                             }, 1000);

@@ -16,7 +16,8 @@
     "morrisjs": "~0.5.1",
     "fullcalendar": "~2.3.2",
     "sweetalert": "~1.1.0",
-    "gmaps"     : "0.4.21"
+    "gmaps": "0.4.21",
+    "animate.css": "~3.4.0"
   },
   "resolutions": {
     "jquery": "~1.11.x",
