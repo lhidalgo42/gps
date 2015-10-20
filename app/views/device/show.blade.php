@@ -26,6 +26,7 @@
                             <button class="btn-danger btn pull-right" id="stole">Mi Vehiculo fue robado</button>
                             <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
                                 auto y lo detendra, impidiendo que el auto continue avanzando.</p>
+                            <i class="fa fa-spin fa-spinner" style="display: none;" id="spin-stole"></i>
 
                         </div>
                     </div>
@@ -35,7 +36,7 @@
                             <button class="btn-success btn pull-right" id="getitback">Lo He Recuperado</button>
                             <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
                                 auto y lo detendra, impidiendo que el auto continue avanzando.</p>
-
+                            <i class="fa fa-spin fa-spinner" style="display: none;" id="spin-getitback"></i>
                         </div>
                     </div>
                     <div class="col-xd-12 sombra">
@@ -45,6 +46,7 @@
                             <p>Ejecutar una prueba rapida para ver como funciona. Tenga en cuenta que se detendra el
                                 suministro de bencina, no se recomienda estar conduciendo.</p>
                             <button class="btn-primary btn" id="test">Ejecutar una prueba</button>
+                            <span class="pull-right" style="display: none;" id="spin-test"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>
                 </div>
@@ -91,7 +93,16 @@
                             device:{{$device->id}}
                         },
                         type: "POST",
+                        beforeSend:function(){
+                            $("#spin-test").addClass('fadein-1');
+                            setTimeout(function(){
+                                $("#spin-test").css('display','block');
+                            },1000);
+
+
+                        },
                         success: function (data) {
+                            $("#spin-test").css('display','none');
                             swal(data.text, data.msg, data.type)
                         }
                     });
