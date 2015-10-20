@@ -153,7 +153,7 @@ class GPSController extends \BaseController {
 		}
 	}
 
-	public function sendgetitback()
+	public function sendGetitback()
 	{
 		$id = Input::get('device');
 		$device = Device::find($id);

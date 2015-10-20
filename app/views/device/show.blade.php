@@ -132,6 +132,15 @@
                             },1000);
                             $("#getitback").removeClass('disabled');
                         },
+                        error:function(){
+                            console.log(error);
+                            $("#spin-getitback").addClass('fadeout-1');
+                            setTimeout(function(){
+                                $("#spin-getitback").css('display','none');
+                            },1000);
+                            $("#getitback").removeClass('disabled');
+                            swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
+                        },
                         success: function (data) {
                             $("#spin-getitback").addClass('fadeout-1');
                             setTimeout(function(){
