@@ -69,6 +69,9 @@
                             });
                         });
                 @endif
+
+
+                
                 $("#stole").click(function () {
                   $(this).addClass('disabled');
                     $.ajax({
@@ -97,6 +100,7 @@
                             setTimeout(function(){
                                 $("#spin-stole").css('display','none');
                             },1000);
+                            data = JSON.parse(data);
                             swal(data.text, data.msg, data.status);
                             $("#stole").removeClass('disabled');
                             if(data.status == 'success')
@@ -104,6 +108,10 @@
                                 $("#stole").parent().parent().addClass('fadeout-1');
                                 setTimeout(function() {
                                     $("#stole").parent().parent().css('display','none');
+                                    $("#getitback").parent().parent().addClass('fadein-1');
+                                    setTimeout(function(){
+                                        $("#getitback").parent().parent().css('display','block');
+                                    },1000);
                                 },1000);
                             }
                         }
