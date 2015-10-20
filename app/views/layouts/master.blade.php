@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NUT</title>
+    <title>GPS</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/packages/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,6 +44,9 @@
 
             <!-- DataTables Plugins Bootstrap-->
     {{HTML::style('/packages/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}
+
+
+    {{HTML::style('/packages/sweetalert/dist/sweetalert.css')}}
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -117,29 +120,6 @@
 
 <body>
 @yield('content')
-
-@if(Session::has('success'))
-    <script>
-        swal({
-            title: "Proceso Exitoso",
-            text: "{{Session::get('success')}}",
-            timer: 2000,
-            showConfirmButton: false,
-            type: "success"
-        });
-    </script>
-@endif
-@if(Session::has('error'))
-    <script>
-        swal({
-            title: "Proceso Exitoso",
-            text: "{{Session::get('error')}}",
-            timer: 2000,
-            showConfirmButton: false,
-            type: "error"
-        });
-    </script>
-@endif
 </body>
 
 </html>

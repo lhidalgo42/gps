@@ -5,15 +5,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"><img src="/img/avatar_2x.png" style="width: 2%;position: absolute;"> <span style="margin-left: 35px;">NUT</span></a>
+        <a class="navbar-brand" href="/"><span style="margin-left: 35px;">GPS</span></a>
     </div>
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
         <!-- /.dropdown -->
+        <img src="/img/avatar_2x.png" style="width: 30px;">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i> {{Auth::user()->name}}  <i class="fa fa-caret-down"></i>
+                 {{Auth::user()->name}}  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li><a href="/profile"><i class="fa fa-user fa-fw"></i> User Profile</a>

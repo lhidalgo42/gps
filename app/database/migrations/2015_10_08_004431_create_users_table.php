@@ -21,10 +21,11 @@ class CreateUsersTable extends Migration {
 			$table->string('name');
 			$table->string('remember_token');
 			$table->integer('roles_id');
+			$table->string('phone');
+			$table->string('rut');
 			$table->timestamps();
 		});
 	}
-
 
 	/**
 	 * Reverse the migrations.

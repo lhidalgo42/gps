@@ -17,6 +17,22 @@ class DatatypeTableSeeder extends Seeder {
 			'name' => 'acc on',
 			'description' => 'Contacto del Auto, Encendido.'
 		]);
+		Datatype::create([
+			'name' => 'lt',
+			'description' => 'Alarma Puesta.'
+		]);
+		Datatype::create([
+			'name' => 'mt',
+			'description' => 'Alarma Desactivada.'
+		]);
+		Datatype::create([
+			'name' => 'jt',
+			'description' => 'Suministro de Combustible Cortado.'
+		]);
+		Datatype::create([
+			'name' => 'kt',
+			'description' => 'Suministro de Combustible Restablecido.'
+		]);
 	}
 
 }
