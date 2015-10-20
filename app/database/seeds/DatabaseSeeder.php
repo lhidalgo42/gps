@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder {
 		 $this->call('UserdeviceTableSeeder');
 		 $this->call('DeviceTableSeeder');
 		 $this->call('DatatypeTableSeeder');
+		 $this->call('StatusTableSeeder');
 	}
 
 }

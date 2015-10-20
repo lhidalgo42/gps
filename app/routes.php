@@ -35,4 +35,5 @@ Route::group(array('before' => 'auth'), function() {
      Route::get('/gps/data/index','GPSController@index');
      Route::post('/gps/data/send/test','GPSController@sendTest');
      Route::post('/gps/data/send/stole','GPSController@sendStole');
+     Route::post('/gps/data/send/getitback','GPSController@sendGetitback');
 });

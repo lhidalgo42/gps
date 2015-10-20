@@ -12,7 +12,8 @@ class UsersController extends \BaseController {
                 $coordinates[$device->id] = array($dato->latitude, $dato->longitude);
             }
         }
-        return View::make('users.home')->with(compact('devices','coordinates'));
+        $statuses = Status::all();
+        return View::make('users.home')->with(compact('devices','coordinates','statuses'));
 	}
     public function create(){
         return View::make('app.users.new');

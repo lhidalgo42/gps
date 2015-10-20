@@ -18,6 +18,8 @@ class CreateStatusTable extends Migration {
 			$table->string('name');
 			$table->string('description');
             $table->string('className');
+            $table->string('cssBorder');
+            $table->string('cssColor');
 			$table->timestamps();
 		});
 	}
