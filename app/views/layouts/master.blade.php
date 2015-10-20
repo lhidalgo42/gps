@@ -46,6 +46,9 @@
     {{HTML::style('/packages/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}
 
 
+    {{HTML::style('/packages/sweetalert/dist/sweetalert.css')}}
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -117,29 +120,6 @@
 
 <body>
 @yield('content')
-
-@if(Session::has('success'))
-    <script>
-        swal({
-            title: "Proceso Exitoso",
-            text: "{{Session::get('success')}}",
-            timer: 2000,
-            showConfirmButton: false,
-            type: "success"
-        });
-    </script>
-@endif
-@if(Session::has('error'))
-    <script>
-        swal({
-            title: "Proceso Exitoso",
-            text: "{{Session::get('error')}}",
-            timer: 2000,
-            showConfirmButton: false,
-            type: "error"
-        });
-    </script>
-@endif
 </body>
 
 </html>
