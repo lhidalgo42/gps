@@ -112,26 +112,26 @@ class GPSController extends \BaseController {
 		$device = Device::find($id);
 		$lock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',L']);
         if($lock->statusCode != 200){
-            return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','type' => 'error'));
+            return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','type' => 'status'));
         }
         sleep(10);
         $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','lt')->orderBy('data.id', 'DESC')->take(1)->select('data.created_at')->get()->first();
         if((time()-strtotime($data->created_at)) <10){
             $unlock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',M']);
             if($unlock->statusCode != 200){
-                return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','type' => 'error'));
+                return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','status' => 'error'));
             }
             sleep(10);
             $data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','mt')->orderBy('data.id', 'DESC')->take(1)->select('data.created_at')->get()->first();
             if((time()-strtotime($data->created_at)) <10) {
-                return json_encode(array('text' => 'Exitosa','msg' => 'Prueba Ejecutada Correctamente','type' => 'success'));
+                return json_encode(array('text' => 'Exitosa','msg' => 'Prueba Ejecutada Correctamente','status' => 'success'));
             }
             else{
-                return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #02)','type' => 'error'));
+                return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #02)','status' => 'error'));
             }
         }
         else{
-            return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','type' => 'error'));
+            return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','status' => 'error'));
         }
 	}
 
@@ -141,15 +141,15 @@ class GPSController extends \BaseController {
 		$device = Device::find($id);
 		$lock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',J']);
 		if($lock->statusCode != 200){
-			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','type' => 'error'));
+			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','status' => 'error'));
 		}
 		sleep(10);
 		$data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','jt')->orderBy('data.id', 'DESC')->take(1)->select('data.created_at')->get()->first();
 		if((time()-strtotime($data->created_at)) <10){
-				return json_encode(array('text' => 'Exitosa','msg' => 'Suministro Cortado Exitosamente','type' => 'success'));
+				return json_encode(array('text' => 'Exitosa','msg' => 'Suministro Cortado Exitosamente','status' => 'success'));
 		}
 		else{
-			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','type' => 'error'));
+			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','status' => 'error'));
 		}
 	}
 
@@ -159,15 +159,15 @@ class GPSController extends \BaseController {
 		$device = Device::find($id);
 		$lock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',K']);
 		if($lock->statusCode != 200){
-			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','type' => 'error'));
+			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','status' => 'error'));
 		}
 		sleep(10);
 		$data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','kt')->orderBy('data.id', 'DESC')->take(1)->select('data.created_at')->get()->first();
 		if((time()-strtotime($data->created_at)) <10){
-			return json_encode(array('text' => 'Exitosa','msg' => 'Suministro Cortado Exitosamente','type' => 'success'));
+			return json_encode(array('text' => 'Exitosa','msg' => 'Suministro Cortado Exitosamente','status' => 'success'));
 		}
 		else{
-			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','type' => 'error'));
+			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','status' => 'error'));
 		}
 	}
 

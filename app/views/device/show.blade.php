@@ -76,14 +76,45 @@
                             device:{{$device->id}}
                         },
                         type: "POST",
+                        beforeSend:function(){
+                            $("#spin-stole").addClass('fadein-1');
+                            setTimeout(function(){
+                                $("#spin-stole").css('display','block');
+                            },1000);
+                        },
                         success: function (data) {
-                            swal(data['text'], data['msg'], data['type'])
-                            $("#stole").css('display','none');
-                            $("#getitback").css('display','block');
+                            $("#spin-stole").addClass('fadeout-1');
+                            setTimeout(function(){
+                                $("#spin-stole").css('display','none');
+                            },1000);
+                            swal(data.text, data.msg, data.status);
+                        }
+                    });
+                });
+                $("#getitback").click(function () {
+                    $.ajax({
+                        url: "/gps/data/send/getitback",
+                        data: {
+                            device:{{$device->id}}
+                        },
+                        type: "POST",
+                        beforeSend:function(){
+                            $("#spin-getitback").addClass('fadein-1');
+                            setTimeout(function(){
+                                $("#spin-getitback").css('display','block');
+                            },1000);
+                        },
+                        success: function (data) {
+                            $("#spin-getitback").addClass('fadeout-1');
+                            setTimeout(function(){
+                                $("#spin-getitback").css('display','none');
+                            },1000);
+                            swal(data.text, data.msg, data.status);
                         }
                     });
                 });
                 $("#test").click(function () {
+                    $(this).addClass('disabled');
                     $.ajax({
                         url: "/gps/data/send/test",
                         data: {
@@ -96,12 +127,23 @@
                                 $("#spin-test").css('display','block');
                             },1000);
                         },
+                        error: function (error) {
+                            console.log(error);
+                            $("#spin-test").addClass('fadeout-1');
+                            setTimeout(function(){
+                                $("#spin-test").css('display','none');
+                            },1000);
+                            $("#test").removeClass('disabled');
+                            swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
+                        },
                         success: function (data) {
                             $("#spin-test").addClass('fadeout-1');
                             setTimeout(function(){
                                 $("#spin-test").css('display','none');
                             },1000);
-                            swal(data['text'], data['msg'], data['type'])
+                            $("#test").removeClass('disabled');
+                            data = JSON.parse(data);
+                            swal(data.text, data.msg, data.status);
                         }
                     });
                 });
