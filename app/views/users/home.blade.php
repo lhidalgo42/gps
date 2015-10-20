@@ -16,9 +16,9 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Dispositivos</h1>
                     <div class="pull-right" style="padding-bottom: 10px;">
-                        <i class="fa fa-square fa-2x" style="color:#5CB85C;"></i><span<¡2
-                        <i class="fa fa-square fa-2x" style="color:yellow;">Proximo a Vencer</i>
-                        <i class="fa fa-square fa-2x" style="color:red;">Malo</i>
+                        <i class="fa fa-square fa-2x" style="color:#5CB85C;"></i><span style="padding:10px; font-weight:bold;">Ok</span>
+                        <i class="fa fa-square fa-2x" style="color:yellow;"></i><span style="padding:10px; font-weight:bold;">Alerta</span>
+                        <i class="fa fa-square fa-2x" style="color:red;"></i><span style="padding:10px; font-weight:bold;">Error</span>
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->
