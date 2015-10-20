@@ -24,8 +24,7 @@
                         <div style="padding: 10px;">
                             <h4>En caso de robo, presione este botón</h4>
                             <button class="btn-danger btn pull-right" id="stole">Mi Vehiculo fue robado</button>
-                            <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
-                                auto y lo detendra, impidiendo que el auto continue avanzando.</p>
+                            <p>Marque esta opción si su vehiculo fué robado. Se interrumpirá el suministro de combustible lo cual detendrá el vehículo instantaneamente, impidiendo que continue avanzando.</p>
 
                         </div>
                     </div>
@@ -33,8 +32,7 @@
                         <div style="padding: 10px;">
                             <h4>Ejecutar una Prueba</h4>
 
-                            <p>Ejecutar una prueba rapida para ver como funciona. Tenga en cuenta que se detendra el
-                                suministro de bencina, no se recomienda estar conduciendo.</p>
+                            <p>Se realizará una conexion de prueba con el vehiculo, lo cual producirá la activación y desactivación de la alarma, no se recomienda estar conduciendo.</p>
                             <button class="btn-primary btn" id="test">Ejecutar una prueba</button>
                         </div>
                     </div>
