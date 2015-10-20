@@ -10,7 +10,8 @@ class DeviceTableSeeder extends Seeder {
 		Device::create([
 			'imei' => '359710048662044',
 			'name' => 'Auto Luchenzo',
-			'plate' => 'CCRT57'
+			'plate' => 'CCRT57',
+			'status_id' => 1
 		]);
 
 		$faker = Faker::create();
@@ -20,7 +21,8 @@ class DeviceTableSeeder extends Seeder {
 			Device::create([
 				'imei' => $faker->numerify('###############'),
 				'name' => $faker->name,
-				'plate' => $faker->bothify('????##')
+				'plate' => $faker->bothify('????##'),
+				'status_id' => 1
 			]);
 		}
 	}

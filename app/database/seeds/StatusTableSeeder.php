@@ -6,12 +6,12 @@ class StatusTableSeeder extends Seeder {
 	public function run()
 	{
 		Status::create([
-			'name' => 'Activo',
-			'description' => 'Dispositivo Activo y Funcionando.',
+			'name' => 'Check',
+			'description' => 'Dispositivo en espera de aprovación.',
 			'className' => 'panel-primary'
 		]);
 		Status::create([
-			'name' => 'Positivo',
+			'name' => 'Activo',
 			'description' => 'Dispositivo Funcionando sin problemas.',
 			'className' => 'panel-green'
 		]);

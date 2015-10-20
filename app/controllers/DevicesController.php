@@ -46,7 +46,8 @@ class DevicesController extends \BaseController {
 	{
 		$device = Device::find($id);
 		$data = $dato = Data::where('devices_id',$device->id)->orderBy('id', 'DESC')->take(1)->get()->first();
-		return View::make('device.show')->with(compact('device','data'));
+		$status = Status::find($device->status_id);
+		return View::make('device.show')->with(compact('device','data','status'));
 	}
 
 	/**

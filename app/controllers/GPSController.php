@@ -139,6 +139,7 @@ class GPSController extends \BaseController {
 	{
 		$id = Input::get('device');
 		$device = Device::find($id);
+		$status = Status::where('name','Robado')->get()->first();
 		$lock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',J']);
 		if($lock->statusCode != 200){
 			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','status' => 'error'));
@@ -147,6 +148,9 @@ class GPSController extends \BaseController {
 		$data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','jt')->orderBy('data.id', 'DESC')->take(1)->select('data.created_at')->get()->first();
 		if((time()-strtotime($data->created_at)) <10){
 				return json_encode(array('text' => 'Exitosa','msg' => 'Suministro Cortado Exitosamente','status' => 'success'));
+			$device->status_id = $status->id;
+			$device->save();
+
 		}
 		else{
 			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','status' => 'error'));
@@ -157,6 +161,7 @@ class GPSController extends \BaseController {
 	{
 		$id = Input::get('device');
 		$device = Device::find($id);
+		$status = Status::where('name','Check')->get()->first();
 		$lock = cURL::post('http://localhost:3000/send',['name' => $device->tcpName,'data' => '**,imei:'.$device->imei.',K']);
 		if($lock->statusCode != 200){
 			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error de Comunicacion con el Dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #03)','status' => 'error'));
@@ -165,6 +170,8 @@ class GPSController extends \BaseController {
 		$data = Data::join('datatypes','datatypes.id','=','data.datatypes_id')->where('datatypes.name','kt')->orderBy('data.id', 'DESC')->take(1)->select('data.created_at')->get()->first();
 		if((time()-strtotime($data->created_at)) <10){
 			return json_encode(array('text' => 'Exitosa','msg' => 'Suministro Cortado Exitosamente','status' => 'success'));
+			$device->status_id = $status->id;
+			$device->save();
 		}
 		else{
 			return json_encode(array('text' => 'Error','msg' => 'Hubo un Error al Consultar por el Estado del dispositivo, Porvafor Comuniquese con el Servicio Tecnico (Error Code #01)','status' => 'error'));

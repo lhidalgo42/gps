@@ -19,6 +19,7 @@ class CreateDevicesTable extends Migration {
 			$table->string('name');
 			$table->string('plate');
 			$table->string('tcpName');
+			$table->integer('status_id');
 			$table->timestamps();
 		});
 	}
