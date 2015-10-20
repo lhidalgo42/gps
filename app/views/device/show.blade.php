@@ -107,8 +107,8 @@
                             {
                                 $("#stole").parent().parent().addClass('fadeout-1');
                                 setTimeout(function() {
-                                    $("#stole").parent().parent().css('display','none');
                                     $("#getitback").parent().parent().addClass('fadein-1');
+                                    $("#stole").parent().parent().css('display','none');
                                     setTimeout(function(){
                                         $("#getitback").parent().parent().css('display','block');
                                     },1000);
@@ -118,6 +118,7 @@
                     });
                 });
                 $("#getitback").click(function () {
+                    $(this).addClass('disabled');
                     $.ajax({
                         url: "/gps/data/send/getitback",
                         data: {
@@ -129,13 +130,26 @@
                             setTimeout(function(){
                                 $("#spin-getitback").css('display','block');
                             },1000);
+                            $("#getitback").removeClass('disabled');
                         },
                         success: function (data) {
                             $("#spin-getitback").addClass('fadeout-1');
                             setTimeout(function(){
                                 $("#spin-getitback").css('display','none');
                             },1000);
+                            data = JSON.parse(data);
                             swal(data.text, data.msg, data.status);
+                            if(data.status == 'success')
+                            {
+                                $("#getitback").parent().parent().addClass('fadeout-1');
+                                setTimeout(function() {
+                                    $("#stole").parent().parent().addClass('fadein-1');
+                                    $("#getitback").parent().parent().css('display','none');
+                                    setTimeout(function(){
+                                        $("#stole").parent().parent().css('display','block');
+                                    },1000);
+                                },1000);
+                            }
                         }
                     });
                 });
