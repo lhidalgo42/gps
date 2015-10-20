@@ -22,7 +22,7 @@ class DeviceTableSeeder extends Seeder {
 				'imei' => $faker->numerify('###############'),
 				'name' => $faker->name,
 				'plate' => $faker->bothify('????##'),
-				'status_id' => 1
+				'status_id' => round(rand(1,4))
 			]);
 		}
 	}

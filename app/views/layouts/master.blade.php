@@ -120,6 +120,11 @@
 
 <body>
 @yield('content')
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 </body>
 
 </html>
