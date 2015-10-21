@@ -35,14 +35,14 @@
                 <div class="input-group">
                     {{ Form::checkbox('remember', true,array('class' => 'form-control')) }} Recordarme
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Ingresar</button>
                 @if(Session::has('error'))
                     <span class="text-danger">{{Session::get('error')}}</span>
                 @endif
-                <a href="#" class="pull-right need-help">Olvide mi Clave ? </a><span class="clearfix"></span>
+                <a href="#" class="pull-right need-help">Olvide mi Clave</a><span class="clearfix"></span>
                 {{ Form::close() }}
             </div>
-            <a href="#" class="text-center new-account">Create an account </a>
+            <a href="#" class="text-center new-account">Crer una cuenta </a>
         </div>
     </div>
 </div>

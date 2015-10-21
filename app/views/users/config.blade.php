@@ -12,7 +12,7 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <h4 class="page-header">Notificaciones</h4>
+                <h4 class="page-header">Configuración</h4>
             </div>
         </div>
         <!-- /#page-wrapper -->

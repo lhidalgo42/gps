@@ -143,7 +143,7 @@
                                 $("#spin-stole").css('display', 'none');
                             }, 1000);
                             $("#stole").removeClass('disabled');
-                            swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
+                            swal('Error', 'Ooops. Ha ocurrido un error inesperado.', 'error');
                         },
                         success: function (data) {
                             $("#spin-stole").addClass('zoomOut').removeClass('zoomIn');
@@ -188,7 +188,7 @@
                                 $("#spin-test").css('display', 'none');
                             }, 1000);
                             $("#test").removeClass('disabled');
-                            swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
+                            swal('Error', 'Ooops. Ha ocurrido un error inesperado.', 'error');
                         },
                         success: function (data) {
                             $("#spin-test").addClass('zoomOut').removeClass('zoomIn');
