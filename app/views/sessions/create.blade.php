@@ -42,7 +42,7 @@
                 <a href="#" class="pull-right need-help">Olvide mi Clave</a><span class="clearfix"></span>
                 {{ Form::close() }}
             </div>
-            <a href="#" class="text-center new-account">Crer una cuenta </a>
+            <a href="#" class="text-center new-account">Crear una cuenta </a>
         </div>
     </div>
 </div>
