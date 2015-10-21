@@ -35,9 +35,8 @@
                     <div class="col-xd-12 sombra" style="margin-bottom: 10px;@if($status->name == 'Robado') display:none; @else display:block; @endif">
                         <div style="padding: 10px">
                             <button class="btn-success btn pull-right" id="getitback">Lo He Recuperado</button>
-                            <h4>En caso de robo, presione este botón</h4>
-                            <p>Marque esta opción si sospecha que su vehiculo fue robado. La unidad de GPS Rastrearea su
-                                auto y lo detendra, impidiendo que el auto continue avanzando.</p>
+                            <h4>En caso de recuperar su vehiculo, presione este botón</h4>
+                            <p>Marque esta opción para reestablecer el suministro de compustible.</p>
                             <span style="display: none;float: right;margin-top: -25px;" id="spin-getitback" class="animated"><i class="fa fa-spinner fa-pulse fa-2x"></i></span>
                         </div>
                     </div>

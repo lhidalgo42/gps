@@ -7,9 +7,8 @@
 
     <link rel="icon" type="image/ico" href="/images/favicon.ico" />
 
-    <link href="/packages/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/packages/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    {{HTML::style('css/appTheme.css')}}
+    {{HTML::style('css/login/style.css')}}
     <style>
     </style>
 
@@ -20,12 +19,8 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/packages/jquery/dist/jquery.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.0/js/toastr.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/packages/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+    {{HTML::script('/js/appTheme.js')}}
+    {{HTML::script('/js/login/script.js')}}
 
 </head>
 <body>
