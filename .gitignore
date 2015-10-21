@@ -7,3 +7,7 @@ composer.lock
 Thumbs.db
 /.idea
 /public/packages
+/node_modules
+/public/css
+/public/js
+/public/fonts
