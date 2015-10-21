@@ -33,7 +33,7 @@ class SessionsController extends \BaseController {
 
 		if ( ! Auth::attempt($formData, $remember))
 		{
-			return Redirect::back()->withInput()->with('error', 'Su nombre de Usuario o Su clave son Incorrectos.');
+			return Redirect::back()->withInput()->with('error', 'Su nombre de Usuario o clave son Incorrectos.');
 		}
 		return Redirect::route('home')->with('Success', 'Bienvenido $name$ $lastname$ Nuevamente.');
 	}

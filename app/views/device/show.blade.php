@@ -98,7 +98,7 @@
                                         $("#spin-getitback").css('display', 'none');
                                     }, 1000);
                                     $("#getitback").removeClass('disabled');
-                                    swal('Error', 'Ooops Ha ocurrido un error inesperado.', 'error');
+                                    swal('Error', 'Ooops. Ha ocurrido un error inesperado.', 'error');
                                 },
                                 success: function (data) {
                                     $("#spin-getitback").addClass('zoomOut').removeClass('zoomIn');
