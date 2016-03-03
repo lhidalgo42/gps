@@ -7,10 +7,13 @@ class UsersController extends \BaseController {
         $devices = Device::join('users_devices','devices.id','=','users_devices.devices_id')->where('users_devices.users_id',Auth::user()->id)->get();
         $coordinates = [];
         foreach( $devices as $device){
-            $dato = Data::where('devices_id',$device->id)->orderBy('id', 'DESC')->take(1)->get()->first();
+            $dato = Data::where('devices_id',$device->id)->orderBy('id', 'DESC')->take(100)->get();
             if($dato) {
-                $coordinates[$device->id] = array($dato->latitude, $dato->longitude);
+                foreach($dato as $data) {
+                    $coordinates[$device->id][] = array($data['latitude'],$data['longitude']);
+                }
             }
+
         }
         $statuses = Status::all();
         return View::make('users.home')->with(compact('devices','coordinates','statuses'));
