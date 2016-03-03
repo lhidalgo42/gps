@@ -64,17 +64,16 @@
         @if(isset($coordinates[$device->id]))
                     var map{{$device->id}} = new GMaps({
                         div: '#map{{$device->id}}',
-                        lat: {{$coordinates[$device->id][0]}},
-                        lng: {{$coordinates[$device->id][1]}}
+                        lat: {{$coordinates[$device->id][0][0]}},
+                        lng: {{$coordinates[$device->id][0][1]}}
                     });
-                    map{{$device->id}}.addMarker({
-                        lat: {{$coordinates[$device->id][0]}},
-                        lng: {{$coordinates[$device->id][1]}},
-                        title: '{{$device->plate}}',
-                        infoWindow: {
-                            content: '{{$device->created_at}}'
-                        }
-                    });
+                path = {{json_encode($coordinates[$device->id])}};
+                map{{$device->id}}.drawPolyline({
+                    path: path,
+                    strokeColor: '#131540',
+                    strokeOpacity: 0.6,
+                    strokeWeight: 6
+                });
         @endif
         @endforeach
             });
